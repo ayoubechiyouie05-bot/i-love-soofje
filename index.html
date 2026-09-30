@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love Soofje ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e7, #ff9fc5, #ffcce0);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 10;
+    }
+
+    h1 {
+      font-size: clamp(45px, 10vw, 90px);
+      color: white;
+      text-shadow: 0 5px 20px rgba(255, 20, 100, 0.4);
+      animation: heartbeat 1.4s infinite;
+    }
+
+    .name {
+      color: #ff2f75;
+    }
+
+    p {
+      margin-top: 20px;
+      color: white;
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: #ff2f75;
+      font-size: 25px;
+      animation: float 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .big-heart {
+      font-size: 100px;
+      margin-bottom: 10px;
+      animation: heartbeat 1.2s infinite;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="big-heart">💗</div>
+
+    <h1>
+      I Love <span class="name">Soofje</span> 💕
+    </h1>
+
+    <p>Forever & Always ❤️</p>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+
+      const hearts = ["💗", "💖", "💕", "💓", "💘", "❤️"];
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (15 + Math.random() * 35) + "px";
+      heart.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 9000);
+    }
+
+    setInterval(createHeart, 250);
+  </script>
+
+</body>
+</html>
